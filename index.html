@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in - Max Travels</title>
+
+    <!-- Local Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="assets/css/output.css">
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Inter & Exo 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="bg-white font-sans min-h-screen flex items-center justify-center p-4">
+
+    <!-- max-w-sm ব্যবহারের ফলে পুরো লগইন কার্ডের প্রস্থ সুন্দরভাবে কমে আসবে -->
+    <div class="w-full max-w-sm flex flex-col items-center justify-center space-y-6">
+
+        <div class="flex flex-col items-center justify-center mb-1 space-y-2">
+            <img src="assets/images/MaxLogoIcon.png" alt="Max Travels Logo"
+                class="h-[74px] md:h-[90px] w-auto object-contain">
+
+            <span class="text-4xl sm:text-5xl font-black text-[#70C844] tracking-wider font-exo text-center">MAX
+                TRAVELS</span>
+        </div>
+
+        <div class="text-center">
+            <h1 class="text-lg font-black text-[#441113] uppercase tracking-wider">Log in here</h1>
+        </div>
+
+        <form id="loginForm" class="w-full space-y-5" onsubmit="handleLogin(event)">
+            <div class="space-y-1.5">
+                <label for="phone" class="block text-base font-extrabold text-[#0E2339]">Phone Number</label>
+                <!-- প্লেসহোল্ডার অপাসিটি কমিয়ে ২৫% করা হলো -->
+                <input type="tel" id="phone" required placeholder="017XXXXXXXX"
+                    class="green-input-bg block w-full rounded-full px-5 py-2.5 text-[16px] font-bold focus:outline-none focus:ring-2 focus:ring-[#70C844] transition-all placeholder:opacity-25">
+            </div>
+
+            <div class="space-y-1.5">
+                <label for="password" class="block text-base font-extrabold text-[#0E2339]">Password</label>
+                <div class="relative">
+                    <!-- পাসওয়ার্ড ডটের অপাসিটি কমানো হলো -->
+                    <input type="password" id="password" required placeholder="••••••••••••"
+                        class="green-input-bg block w-full rounded-full pl-5 pr-12 py-2.5 text-[12px] font-bold tracking-[0.3em] focus:outline-none focus:ring-2 focus:ring-brandGreen transition-all placeholder:opacity-20">
+                    <button type="button" onclick="togglePasswordVisibility('password', 'eyeIcon')"
+                        class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-500 hover:text-[#0E2339]">
+                        <!-- text-lg / text-base কমানো হয়ে text-sm করা হলো -->
+                        <i id="eyeIcon" class="fa-regular fa-eye text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- রাউন্ডেড ফুল গ্লাস বাটন -->
+            <button type="submit"
+                class="w-full rounded-full glass-nav-btn px-4 py-1.5 text-lg font-black cursor-pointer transition-all">Log
+                in</button>
+        </form>
+
+        <!-- Custom Alert Modal (Glass Effect) -->
+        <!-- Custom Alert Modal (Glass Effect) -->
+        <div id="alertModal"
+            class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-all duration-300">
+            <!-- মডালের উইডথ এবং প্যাডিং দ্বিগুণ করা হলো (max-w-sm থেকে max-w-xl, p-6 থেকে p-12) -->
+            <div class="w-full max-w-xl rounded-[40px] p-10 sm:p-12 text-center space-y-8 glass-modal-card"
+                style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 2px solid rgba(119, 192, 67, 0.6); box-shadow: 0 30px 60px rgba(14, 35, 57, 0.3);">
+
+                <!-- Max Travels Logo Icon (বড় করা হলো) -->
+                <div
+                    class="w-28 h-28 mx-auto rounded-full bg-white/75 border-2 border-[#70C844]/50 flex items-center justify-center p-4 shadow-md">
+                    <img src="assets/images/MaxLogoIcon.png" alt="Max Logo" class="w-full h-full object-contain">
+                </div>
+
+                <!-- Title & Message (ফন্ট সাইজ দ্বিগুণ করা হলো) -->
+                <div class="space-y-3">
+                    <h3 class="text-3xl sm:text-4xl font-black text-[#0E2339] font-exo tracking-wide">
+                        Login Failed
+                    </h3>
+                    <p id="alertMessage" class="text-lg sm:text-xl font-bold text-[#0E2339]/90 px-4 leading-relaxed">
+                        Invalid phone number or password. Please try again.
+                    </p>
+                </div>
+
+                <!-- OK বাটনটি শুধুমাত্র লগইন ফেইলের জন্য রাখা হয়েছে (সাকসেসে এটি কোড দিয়ে হাইড করা থাকবে) -->
+                <button id="alertOkBtn" onclick="closeAlertModal()"
+                    class="w-full rounded-full glass-nav-btn px-4 py-3 text-lg font-black cursor-pointer transition-all">
+                    OK
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+
+</html>

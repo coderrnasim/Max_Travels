@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User - Max Travels</title>
+
+    <!-- Tailwind CSS & Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/output.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tom Select CDN (For Premium Modern Dropdown UI) -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-slate-50 font-sans min-h-screen flex flex-col antialiased relative overflow-x-hidden">
+
+    <!-- Ambient Glows Background -->
+    <div
+        class="fixed -top-20 -left-20 w-[350px] sm:w-[500px] xl:w-[600px] h-[350px] sm:h-[500px] xl:h-[600px] bg-[#70C844]/15 rounded-full blur-[120px] pointer-events-none">
+    </div>
+    <div
+        class="fixed -bottom-20 -right-20 w-[400px] sm:w-[600px] xl:w-[700px] h-[400px] sm:h-[600px] xl:h-[700px] bg-[#70C844]/20 rounded-full blur-[140px] pointer-events-none">
+    </div>
+
+    <!-- Glass Header Navigation -->
+    <header
+        class="w-full bg-white/70 backdrop-blur-xl border-b border-[#70C844]/20 sticky top-0 z-40 px-4 sm:px-6 lg:px-10 py-3.5 flex items-center justify-between shadow-sm">
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <img src="../../assets/images/MaxLogoIcon.png" alt="Max Travels Logo" class="h-8 sm:h-10 w-auto">
+            <span class="text-xl sm:text-2xl font-black text-[#70C844] font-exo tracking-wider">MAX TRAVELS</span>
+        </div>
+        <div class="flex items-center space-x-3">
+            <a href="dashboard.html"
+                class="glass-nav-btn px-3.5 sm:px-4 py-1.5 text-xs sm:text-sm font-bold rounded-full cursor-pointer flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> <span class="hidden sm:inline">Dashboard</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main
+        class="flex-1 max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl w-full mx-auto p-4 sm:p-6 lg:p-10 flex items-center justify-center relative z-10 my-auto">
+
+        <!-- Card Container with Smooth 3D Hover (Isolated to card only) -->
+        <div
+            class="w-full bg-[#70C844]/15 backdrop-blur-3xl border border-[#70C844]/40 rounded-[24px] sm:rounded-[32px] p-5 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden transition-transform transition-shadow duration-700 ease-out transform hover:scale-[1.05] hover:-translate-y-2 hover:shadow-[0_40px_80px_-15px_rgba(15,23,42,0.12),0_25px_45px_-10px_rgba(100,116,139,0.08),0_0_30px_rgba(112,200,68,0.15)] hover:border-[#70C844]/70">
+
+            <!-- Form Title Header -->
+            <div
+                class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-[#70C844]/30 pb-4 mb-6 gap-3 relative z-10">
+                <div>
+                    <h1
+                        class="text-xl sm:text-2xl lg:text-3xl font-black font-exo text-[#0E2339] flex items-center gap-2.5">
+                        <i class="fa-solid fa-user-plus text-[#70C844]"></i> Create System User
+                    </h1>
+                    <p class="text-gray-600 text-xs sm:text-sm font-semibold mt-1">Assign roles and route permissions
+                        for team members.</p>
+                </div>
+                <span
+                    class="px-3.5 py-1 bg-[#70C844]/25 border border-[#70C844]/50 text-[#0E2339] font-extrabold text-[10px] sm:text-xs rounded-full uppercase tracking-widest font-exo">
+                    Role Access Engine
+                </span>
+            </div>
+
+            <!-- Form Body -->
+            <form id="createUserForm" onsubmit="handleCreateUser(event)" class="space-y-5 relative z-10">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+
+                    <!-- Full Name -->
+                    <div class="space-y-1.5">
+                        <label for="userName" class="block text-xs sm:text-sm font-extrabold text-[#0E2339]">Full
+                            Name</label>
+                        <div class="relative">
+                            <input type="text" id="userName" required placeholder="e.g. Md. Nasim Haider"
+                                class="bg-[#70C844]/15 border border-[#70C844]/30 block w-full rounded-2xl px-4 py-3 text-xs sm:text-sm font-bold text-[#0E2339] focus:outline-none focus:border-[#70C844] focus:ring-2 focus:ring-[#70C844]/30 shadow-inner">
+                            <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-[#0E2339]/60">
+                                <i class="fa-regular fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="space-y-1.5">
+                        <label for="userPhone" class="block text-xs sm:text-sm font-extrabold text-[#0E2339]">Phone
+                            Number (Login ID)</label>
+                        <div class="relative">
+                            <input type="tel" id="userPhone" required placeholder="017XXXXXXXX"
+                                class="bg-[#70C844]/15 border border-[#70C844]/30 block w-full rounded-2xl px-4 py-3 text-xs sm:text-sm font-bold text-[#0E2339] focus:outline-none focus:border-[#70C844] focus:ring-2 focus:ring-[#70C844]/30 shadow-inner">
+                            <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-[#0E2339]/60">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- User Role Dropdown -->
+                    <div class="space-y-1.5 md:col-span-2">
+                        <label for="userRole" class="block text-xs sm:text-sm font-extrabold text-[#0E2339]">User
+                            Role</label>
+                        <select id="userRole" required>
+                            <option value="Super Admin">Super Admin</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Up Counter Man">Up Counter Man (ভোলাহাট ➔ ঢাকা)</option>
+                            <option value="Down Counter Man">Down Counter Man (ঢাকা ➔ ভোলাহাট)</option>
+                        </select>
+                    </div>
+
+                    <!-- Dynamic City Dropdown -->
+                    <div id="cityGroup" class="space-y-1.5 hidden">
+                        <label for="userCity" class="block text-xs sm:text-sm font-extrabold text-[#0E2339]">City /
+                            Region</label>
+                        <select id="userCity">
+                            <!-- Injected by JS -->
+                        </select>
+                    </div>
+
+                    <!-- Counter Name Field -->
+                    <div id="counterGroup" class="space-y-1.5 hidden">
+                        <label for="userCounter" class="block text-xs sm:text-sm font-extrabold text-[#0E2339]">Counter
+                            Terminal Name</label>
+                        <div class="relative">
+                            <input type="text" id="userCounter" placeholder="e.g. Kansat Main Counter"
+                                class="bg-[#70C844]/15 border border-[#70C844]/30 block w-full rounded-2xl px-4 py-3 text-xs sm:text-sm font-bold text-[#0E2339] focus:outline-none focus:border-[#70C844] focus:ring-2 focus:ring-[#70C844]/30 shadow-inner">
+                            <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-[#0E2339]/60">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Assign Password -->
+                    <div class="space-y-1.5 md:col-span-2">
+                        <label for="userPassword" class="block text-xs sm:text-sm font-extrabold text-[#0E2339]">Assign
+                            Password</label>
+                        <div class="relative">
+                            <input type="password" id="userPassword" required placeholder="••••••••"
+                                class="bg-[#70C844]/15 border border-[#70C844]/30 block w-full rounded-2xl pl-4 pr-12 py-3 text-xs sm:text-sm font-bold tracking-widest text-[#0E2339] focus:outline-none focus:border-[#70C844] focus:ring-2 focus:ring-[#70C844]/30 shadow-inner">
+                            <button type="button" onclick="togglePasswordVisibility('userPassword', 'userEyeIcon')"
+                                class="absolute inset-y-0 right-0 flex items-center pr-4 text-[#0E2339]/60 hover:text-[#0E2339]">
+                                <i id="userEyeIcon" class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4 flex justify-end">
+                    <button type="submit"
+                        class="w-full sm:w-auto rounded-full glass-nav-btn px-10 py-3 text-lg font-black cursor-pointer shadow-lg active:scale-95 transition-all">
+                        <i class="fa-solid fa-plus-circle mr-2"></i> Save New User
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <!-- Tom Select JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+
+    <!-- JS Files -->
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/create-user.js"></script>
+</body>
+
+</html>

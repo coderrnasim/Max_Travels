@@ -6,76 +6,108 @@ let calViewingDateObj = new Date();
 
 // User Role Definition (Defaulting based on login session)
 const currentUser = {
-    role: "counterman", // প্রয়োজন অনুসারে 'admin', 'superadmin', বা 'counterman' করতে পারেন
+    role: "counterman",
     counterName: "Bholahat Counter"
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Today's Date Input Default Setup
+document.addEventListener('DOMContentLoaded', async () => {
+    // 1. Today's Date Input Default Setup
     const todayStr = new Date().toISOString().split('T')[0];
     const dateInput = document.getElementById('tripDate');
     if (dateInput) {
         dateInput.value = todayStr;
     }
 
-    // Load Profile Info & Sync UI
-    loadUserProfile();
-    updateUIState();
+    // 2. Load Profile Info
+    await loadUserProfile();
+
+    // 3. Sync UI State
+    if (typeof updateUIState === 'function') {
+        updateUIState();
+    }
 });
 
 /* =========================================================
    2. USER PROFILE & DROPDOWN LOGIC
    ========================================================= */
-/* =========================================================
-   2. USER PROFILE & DROPDOWN LOGIC
-   ========================================================= */
-function loadUserProfile() {
-    const savedUser = JSON.parse(localStorage.getItem('loggedUser')) || {
-        name: "Md. Nasim Haider",
-        role: "Super Admin",
-        city: "Head Office",
-        counter: "Head Office",
-        avatarUrl: ""
-    };
+async function loadUserProfile() {
+    const token = localStorage.getItem('token');
+    const savedUser = JSON.parse(localStorage.getItem('loggedUser'));
 
-    const userNameEl = document.getElementById('userName');
-    const userRoleBadgeEl = document.getElementById('userRoleBadge');
-    const userCounterEl = document.getElementById('userCounter');
-    const avatarImgEl = document.getElementById('userAvatar');
-
-    if (userNameEl) userNameEl.innerText = savedUser.name;
-
-    const role = (savedUser.role || "").trim().toLowerCase();
-
-    // সুপার অ্যাডমিন বা অ্যাডমিন হলে হেড অফিস লোকেশন ফিক্স করার লজিক
-    let displayLocation = savedUser.counter || savedUser.city || "Head Office";
-    if (role === 'admin' || role === 'super admin' || role === 'superadmin' || savedUser.name.toLowerCase().includes('nasim') || savedUser.name.toLowerCase().includes('faruk')) {
-        displayLocation = "Head Office";
+    // ইউজার লগইন না থাকলে লগইন পেজে পাঠাবে
+    if (!token && !savedUser) {
+        window.location.href = '../../index.html';
+        return;
     }
 
-    if (userRoleBadgeEl && userCounterEl) {
-        if (role === 'admin' || role === 'super admin' || role === 'superadmin') {
-            userRoleBadgeEl.classList.add('hidden');
-            userCounterEl.innerText = savedUser.role;
-        } else {
-            userRoleBadgeEl.classList.add('hidden');
-            userCounterEl.innerText = displayLocation;
-        }
-    }
+    try {
+        let userData = savedUser;
 
-    // প্রোফাইল পিকচার হ্যান্ডেলিং: পার্মানেন্ট স্টোরেজ বা আপলোড করা ছবি ড্যাশবোর্ডে লোড করা
-    if (avatarImgEl) {
-        const userSpecificAvatarKey = `permanent_avatar_${savedUser.name.replace(/\s+/g, '_')}`;
-        const permanentAvatar = localStorage.getItem(userSpecificAvatarKey);
+        // ব্যাকএন্ড API থেকে লেটেস্ট তথ্য আনা (টোকেন থাকলে)
+        if (token) {
+            const response = await fetch('http://localhost:5000/api/users/profile', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
 
-        if (permanentAvatar) {
-            avatarImgEl.src = permanentAvatar;
-        } else if (savedUser.avatarUrl && savedUser.avatarUrl.trim() !== "") {
-            avatarImgEl.src = savedUser.avatarUrl;
-        } else {
-            const encodedName = encodeURIComponent(savedUser.name);
-            avatarImgEl.src = `https://ui-avatars.com/api/?name=${encodedName}&background=70C844&color=fff&bold=true`;
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success && result.data) {
+                    userData = result.data;
+                    localStorage.setItem('loggedUser', JSON.stringify(userData));
+                }
+            }
         }
+
+        // DOM-এ ইউজার ডাটা বসানো
+        if (userData) {
+            const userNameEl = document.getElementById('userName');
+            const userRoleBadgeEl = document.getElementById('userRoleBadge');
+            const userAvatarEl = document.getElementById('userAvatar');
+            const userCounterEl = document.getElementById('userCounter');
+
+            // নাম সেট করা
+            if (userNameEl) {
+                userNameEl.innerText = userData.name || userData.userName || 'User';
+            }
+
+            // রোল এবং লোকেশন হ্যান্ডেল করা
+            const role = (userData.role || "").trim().toLowerCase();
+            let displayLocation = userData.counter_name || userData.counter || userData.city || "Head Office";
+
+            if (role === 'admin' || role === 'super admin' || role === 'superadmin') {
+                displayLocation = "Head Office";
+            }
+
+            // নতুন সংশোধিত কোড (রোলের ব্যাজ হাইড থাকবে, শুধু নাম ও লোকেশন দেখাবে):
+if (userRoleBadgeEl && userCounterEl) {
+    // যেকোনো ইউজারের জন্যই রোলের ব্যাজ হাইড রাখা হলো
+    userRoleBadgeEl.classList.add('hidden'); 
+    
+    // নিচে শুধু লোকেশন/কাউন্টারের নাম দেখাবে (যেমন: "শিবগঞ্জ Counter" বা "Shivganj")
+    userCounterEl.innerText = displayLocation;
+}
+
+            // প্রোফাইল পিকচার সেট করা (Cloudinary URL / Local / Default UI Avatar)
+            if (userAvatarEl) {
+                const userSpecificAvatarKey = `permanent_avatar_${(userData.name || 'user').replace(/\s+/g, '_')}`;
+                const permanentAvatar = localStorage.getItem(userSpecificAvatarKey);
+
+                if (permanentAvatar) {
+                    userAvatarEl.src = permanentAvatar;
+                } else if (userData.profilePic || userData.avatarUrl) {
+                    userAvatarEl.src = userData.profilePic || userData.avatarUrl;
+                } else {
+                    const encodedName = encodeURIComponent(userData.name || 'User');
+                    userAvatarEl.src = `https://ui-avatars.com/api/?name=${encodedName}&background=70C844&color=fff&bold=true`;
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error loading user profile:', error);
     }
 }
 
@@ -314,6 +346,7 @@ function closeLogoutModal() {
 
 function confirmLogout() {
     localStorage.removeItem('loggedUser');
+    localStorage.removeItem('token');
     localStorage.removeItem('isLoggedIn');
     sessionStorage.clear();
     window.location.href = '../../index.html';

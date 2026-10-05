@@ -15,3 +15,4 @@ function togglePasswordVisibility(inputId, iconId) {
     eyeIcon.classList.add('fa-eye');
   }
 }
+

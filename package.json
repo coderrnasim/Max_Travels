@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "dev": "npx @tailwindcss/cli -i assets/css/style.css -o assets/css/output.css --watch",
+    "dev": "npx @tailwindcss/cli -i assets/css/style.css -o assets/css/output.css --watch",
     "build": "npx @tailwindcss/cli -i ./assets/css/style.css -o ./assets/css/output.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,43 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
     "tailwindcss": "^4.3.3"
-  }
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "braces": "^3.0.3",
+    "cloudinary": "^2.11.0",
+    "cors": "^2.8.6",
+    "detect-libc": "^1.0.3",
+    "dotenv": "^18.0.5",
+    "enhanced-resolve": "^5.26.0",
+    "express": "^5.2.1",
+    "fill-range": "^7.1.1",
+    "graceful-fs": "^4.2.11",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "jiti": "^2.7.0",
+    "jsonwebtoken": "^9.0.3",
+    "lightningcss": "^1.32.0",
+    "lightningcss-win32-x64-msvc": "^1.32.0",
+    "magic-string": "^0.30.21",
+    "micromatch": "^4.0.8",
+    "mongoose": "^9.10.4",
+    "mri": "^1.2.0",
+    "multer": "^2.4.0",
+    "node-addon-api": "^7.1.1",
+    "picocolors": "^1.1.1",
+    "picomatch": "^2.3.2",
+    "source-map-js": "^1.2.2",
+    "tapable": "^2.3.3",
+    "to-regex-range": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderrnasim/Max_Travels.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coderrnasim/Max_Travels/issues"
+  },
+  "homepage": "https://github.com/coderrnasim/Max_Travels#readme"
 }

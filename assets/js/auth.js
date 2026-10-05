@@ -1,6 +1,9 @@
 // ==========================================
 // 1. LOGIN FORM HANDLER
 // ==========================================
+// ==========================================
+// 1. LOGIN FORM HANDLER (WITH DYNAMIC AVATAR)
+// ==========================================
 function handleLogin(event) {
     event.preventDefault();
 
@@ -17,11 +20,36 @@ function handleLogin(event) {
     const alertMessage = document.getElementById('alertMessage');
     const modalTitle = alertModal ? alertModal.querySelector('h3') : null;
     const alertOkBtn = document.getElementById('alertOkBtn');
+    
+    // মডালের লোগো/প্রোফাইল পিকচারের ট্যাগ ধরে নেওয়া
+    const loginModalAvatar = document.getElementById('loginModalAvatar');
+    const defaultLogo = 'assets/images/MaxLogoIcon.png';
 
     if (matchedUser) {
         // লগইন সফল হলে কারেন্ট ইউজার সেভ করা
         localStorage.setItem('loggedUser', JSON.stringify(matchedUser));
         localStorage.setItem('isLoggedIn', 'true');
+
+        // ডায়নামিক প্রোফাইল পিকচার সেট করার লজিক
+        if (loginModalAvatar) {
+            // ইউজারের profilePic থাকলে সেটি সেট হবে, না থাকলে বা খালি থাকলে ডিফল্ট লোগো
+            if (matchedUser.profilePic && matchedUser.profilePic.trim() !== '') {
+                loginModalAvatar.src = matchedUser.profilePic;
+                loginModalAvatar.classList.remove('object-contain');
+                loginModalAvatar.classList.add('object-cover'); // প্রোফাইল ইমেজের জন্য
+            } else {
+                loginModalAvatar.src = defaultLogo;
+                loginModalAvatar.classList.remove('object-cover');
+                loginModalAvatar.classList.add('object-contain'); // ডিফল্ট লোগোর জন্য
+            }
+
+            // ছবি লোড হতে সমস্যা হলে (Broken image) অটোমেটিক ডিফল্ট লোগোতে ব্যাক করবে
+            loginModalAvatar.onerror = function() {
+                this.src = defaultLogo;
+                this.classList.remove('object-cover');
+                this.classList.add('object-contain');
+            };
+        }
         
         if (alertModal && alertMessage) {
             if (modalTitle) modalTitle.innerText = 'Login Successful';
@@ -41,7 +69,13 @@ function handleLogin(event) {
             window.location.href = 'views/dashboard/dashboard.html';
         }
     } else {
-        // লগইন ব্যর্থ হলে
+        // লগইন ব্যর্থ হলে সবসময় ডিফল্ট লোগো শো করবে
+        if (loginModalAvatar) {
+            loginModalAvatar.src = defaultLogo;
+            loginModalAvatar.classList.remove('object-cover');
+            loginModalAvatar.classList.add('object-contain');
+        }
+
         if (modalTitle) modalTitle.innerText = 'Login Failed';
         if (alertMessage) {
             alertMessage.innerText = 'ভুল ফোন নম্বর অথবা পাসওয়ার্ড! দয়া করে সঠিক তথ্য দিন।';

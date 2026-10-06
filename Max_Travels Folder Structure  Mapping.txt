@@ -1,0 +1,57 @@
+Max_Travels/                                <-- Root Directory
+│
+├── .gitignore                              <-- Git Ignore File
+├── index.html                              <-- Main Login Page
+├── package.json                            <-- Root Node Packages Config
+├── package-lock.json                       <-- Dependencies Lock File
+├── README.md                               <-- Project Documentation
+│
+├── assets/                                 <-- Static Assets (Frontend)
+│   ├── css/                                <-- Style Files
+│   │   ├── output.css
+│   │   └── style.css
+│   │
+│   ├── images/                             <-- Static Media & Logos
+│   │
+│   └── js/                                 <-- Frontend Scripts
+│       ├── app.js                          <-- Main Application Logic
+│       ├── auth.js                         <-- Authentication Handler (Login/Logout)
+│       ├── config.js                       <-- API Endpoint Configuration
+│       ├── create-user.js                  <-- Admin User Creation Logic
+│       ├── dashboard.js                    <-- Dashboard UI Interactions
+│       └── user-management.js              <-- User CRUD Management Logic
+│
+├── views/                                  <-- HTML View Templates
+│   └── dashboard/                          <-- Admin & User Dashboard Pages
+│       ├── create-user.html                <-- Super Admin User Creation Form
+│       ├── dashboard.html                  <-- Main Admin Dashboard View
+│       └── profile.html                    <-- User Profile View
+│
+├── node_modules/                           <-- Dependencies Folder
+│
+└── max-travels-backend/                    <-- Backend REST API Application
+    ├── .env                                <-- Environment Variables (Database URL, JWT Secret)
+    ├── package.json                        <-- Backend Dependencies Config
+    ├── package-lock.json                   <-- Backend Dependencies Lock File
+    ├── server.js                           <-- Server Entry Point (Express Application)
+    │
+    ├── config/                             <-- Backend Services Setup
+    │   ├── cloudinary.js                   <-- Media Upload & Cloud Storage Config
+    │   ├── db.js                           <-- Database Connection Setup
+    │   └── seedAdmin.js                    <-- Default Super Admin Seeder
+    │
+    ├── controllers/                        <-- Request Controllers (Business Logic)
+    │   ├── authcontroller.js               <-- Login, Register & Auth Logic
+    │   └── usercontroller.js               <-- Profile Update & User Operations
+    │
+    ├── middlewares/                        <-- Custom Express Middlewares
+    │   ├── authMiddleware.js               <-- JWT Authentication Verification
+    │   └── uploadMiddleware.js             <-- Multer File Upload Handler
+    │
+    ├── models/                             <-- Database Schemas/Models
+    │   ├── company.js                      <-- Company Data Model
+    │   └── user.js                         <-- User Schema & Roles Model
+    │
+    └── routes/                             <-- API Route Handlers
+        ├── authRoutes.js                   <-- /api/auth Endpoints
+        └── userRoutes.js                   <-- /api/users Endpoints

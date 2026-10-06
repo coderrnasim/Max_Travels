@@ -25,65 +25,65 @@
 
     <!-- Top Navigation Header -->
     <header
-        class="bg-white/90 backdrop-blur-md border-b-2 border-[#77C043] px-3 sm:px-6 lg:px-8 py-3 flex items-center justify-between sticky top-0 z-30 shadow-sm w-full">
+        class="bg-white/90 backdrop-blur-md border-b-2 border-[#77C043] px-2 sm:px-4 md:px-6 lg:px-8 py-3 flex items-center justify-between sticky top-0 z-30 shadow-sm w-full">
 
-        <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+        <div class="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
             <button id="mobileMenuToggle" onclick="toggleMobileMenu()"
                 class="xl:hidden text-[#0E2339] hover:text-[#77C043] focus:outline-none p-1.5 sm:p-2 rounded-xl hover:bg-gray-100 transition-colors">
                 <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
             </button>
 
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-1.5">
                 <img src="/assets/images/MaxLogoIcon.png" alt="Max Travels Logo"
-                    class="h-8 sm:h-10 w-auto object-contain">
-                <span class="text-base sm:text-xl font-black font-exo tracking-wide text-[#77C043]">
+                    class="h-7 sm:h-8 md:h-9 w-auto object-contain">
+                <span class="text-sm sm:text-base md:text-lg font-black font-exo tracking-wide text-[#77C043]">
                     MAX TRAVELS
                 </span>
             </div>
         </div>
 
-        <!-- Desktop Navigation Menu (Updated Buttons) -->
-        <nav class="hidden xl:flex items-center justify-start flex-nowrap overflow-x-auto gap-2 text-sm font-semibold">
+        <!-- Desktop Navigation Menu (Updated spacing and text size for laptop screens) -->
+        <nav class="hidden xl:flex items-center justify-start flex-nowrap overflow-x-auto gap-1 lg:gap-1.5 text-[11px] lg:text-xs font-semibold">
             <a href="#dashboard" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Dashboard</a>
+                class="glass-nav-btn active text-center px-2 py-2 rounded-xl whitespace-nowrap">Dashboard</a>
             <a href="#manage-trip" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Manage Trip</a>
+                class="glass-nav-btn text-center px-2 py-2 rounded-xl whitespace-nowrap">Manage Trip</a>
             <a href="#trip-information" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Trip Information</a>
+                class="glass-nav-btn text-center px-2 py-2 rounded-xl whitespace-nowrap">Trip Information</a>
             <a href="#trip-information" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Counter Information</a>
+                class="glass-nav-btn text-center px-2 py-2 rounded-xl whitespace-nowrap">Counter Information</a>
             <a href="#cancelled-tickets-report" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Cancelled Tickets</a>
+                class="glass-nav-btn text-center px-2 py-2 rounded-xl whitespace-nowrap">Cancelled Tickets</a>
             <a href="#counter-wise-sales" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Ticket Sales Report</a>
+                class="glass-nav-btn text-center px-2 py-2 rounded-xl whitespace-nowrap">Ticket Sales Report</a>
             <a href="#daily-report" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Finance Report</a>
+                class="glass-nav-btn text-center px-2 py-2 rounded-xl whitespace-nowrap">Finance Report</a>
             <a href="#maintenance-report" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Maintenance Report</a>
+                class="glass-nav-btn text-center px-2 py-2 rounded-xl whitespace-nowrap">Maintenance Report</a>
             <a href="create-user.html" onclick="setActiveNav(this)"
-                class="glass-nav-btn active text-center px-3 py-2 rounded-2xl whitespace-nowrap">Create User</a>
+                class="glass-nav-btn text-center px-2 py-2 rounded-xl whitespace-nowrap">Create User</a>
         </nav>
 
         <!-- Right Section: User Profile & Logout -->
         <div class="relative shrink-0">
             <button id="userMenuBtn" onclick="toggleUserDropdown(event)"
-                class="flex items-center space-x-2 focus:outline-none py-1 px-1.5 rounded-xl hover:bg-gray-100 transition-all">
+                class="flex items-center space-x-1.5 md:space-x-2 focus:outline-none py-1 px-1 rounded-xl hover:bg-gray-100 transition-all">
                 <img id="userAvatar"
                     src="https://ui-avatars.com/api/?name=Md+Nasim+Haider&background=0E2339&color=77C043"
                     alt="User Profile"
-                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-[#77C043] shadow-sm">
+                    class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full object-cover border-2 border-[#77C043] shadow-sm">
 
                 <div class="text-left hidden sm:block">
                     <!-- নাম এবং রোল প্রদর্শনের জন্য কন্টেইনার -->
                     <div class="flex items-center gap-1.5 flex-wrap">
-                        <span id="userName" class="text-lg font-black text-[#0E2339]">Md. Nasim Haider</span>
-                        <span id="userRoleBadge" class="text-[11px] font-extrabold text-[#70C844] hidden"></span>
+                        <span id="userName" class="text-xs md:text-sm lg:text-base font-black text-[#0E2339]">Md. Nasim Haider</span>
+                        <span id="userRoleBadge" class="text-[10px] md:text-[11px] font-extrabold text-[#70C844] hidden"></span>
                     </div>
                     <!-- কাউন্টার বা সিটি লোকেশন প্রদর্শনের জন্য -->
-                    <div id="userCounter" class="text-sm text-[#0E2339]/80 font-bold leading-tight mt-0.5">Bholahat
+                    <div id="userCounter" class="text-[11px] md:text-xs text-[#0E2339]/80 font-bold leading-tight mt-0.5">Bholahat
                         Counter</div>
                 </div>
-                <i class="fa-solid fa-caret-down text-xs sm:text-sm text-gray-500 ml-0.5"></i>
+                <i class="fa-solid fa-caret-down text-xs text-gray-500 ml-0.5"></i>
             </button>
 
             <!-- Profile Dropdown Menu -->
@@ -106,8 +106,8 @@
     </header>
 
     <!-- Mobile Drawer (Updated Buttons) -->
-    <div id="mobileDrawer" class="hidden xl:hidden bg-white border-b border-gray-200 px-4 py-4 shadow-xl">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm font-semibold">
+    <div id="mobileDrawer" class="hidden xl:hidden bg-white border-b border-gray-200 px-3 sm:px-4 py-4 shadow-xl">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm font-semibold">
             <a href="#dashboard" onclick="setActiveNav(this); closeMobileMenu()"
                 class="glass-nav-btn active px-4 py-2.5 rounded-xl block text-center">Dashboard</a>
             <a href="#manage-trip" onclick="setActiveNav(this); closeMobileMenu()"
@@ -130,11 +130,11 @@
     </div>
 
     <!-- Main Content -->
-    <main class="flex-1 px-3 sm:px-6 lg:px-8 py-4 sm:py-6 w-full max-w-full overflow-x-hidden">
+    <main class="flex-1 px-3 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6 w-full max-w-full overflow-x-hidden">
 
         <!-- Search Bar -->
         <div class="bg-slate-50 text-[#0E2339] p-4 sm:p-6 rounded-2xl shadow-md border border-gray-200/80 mb-6">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-end">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-end">
                 <div>
                     <label class="block text-xs font-bold text-[#0E2339] uppercase tracking-wider mb-1.5">Passenger
                         Search</label>
@@ -142,7 +142,7 @@
                         <input type="tel" pattern="[0-9]*" id="mobileSearchInput"
                             placeholder="Mobile Number (Digits only)"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                            class="w-full rounded-xl border border-gray-300 py-2 pl-3.5 pr-11 text-sm text-[#0E2339] bg-white focus:outline-none focus:ring-2 focus:ring-[#77C043] shadow-inner">
+                            class="w-full rounded-xl border border-gray-300 py-2 pl-3.5 pr-11 text-xs sm:text-sm text-[#0E2339] bg-white focus:outline-none focus:ring-2 focus:ring-[#77C043] shadow-inner">
                         <button type="submit"
                             class="absolute right-1 top-1 bottom-1 glass-btn-active px-3 rounded-lg flex items-center justify-center transition-all">
                             <i class="fa-solid fa-magnifying-glass text-xs"></i>
@@ -158,7 +158,7 @@
                             <i class="fa-regular fa-calendar-days text-base"></i>
                         </div>
                         <input type="text" id="tripDateDisplayInput" readonly
-                            class="w-full bg-white border border-gray-300 rounded-xl py-2 pl-10 pr-11 text-sm text-[#0E2339] font-bold focus:outline-none focus:ring-2 focus:ring-[#77C043] shadow-inner cursor-pointer select-none">
+                            class="w-full bg-white border border-gray-300 rounded-xl py-2 pl-10 pr-11 text-xs sm:text-sm text-[#0E2339] font-bold focus:outline-none focus:ring-2 focus:ring-[#77C043] shadow-inner cursor-pointer select-none">
                         <button onclick="event.stopPropagation(); triggerSearch();"
                             class="absolute right-1 top-1 bottom-1 glass-btn-active px-3 rounded-lg flex items-center justify-center transition-all z-10">
                             <i class="fa-solid fa-magnifying-glass text-xs"></i>
@@ -190,7 +190,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="md:col-span-2 lg:col-span-1">
                     <div
                         class="block text-xs font-bold text-[#0E2339] uppercase tracking-wider mb-2 text-center lg:text-left">
                         Showing result for: <span id="currentDateDisplay"
@@ -215,24 +215,24 @@
             </div>
         </div>
 
-        <!-- DESKTOP TABLE VIEW (4 Trips) -->
+        <!-- DESKTOP TABLE VIEW -->
         <div
             class="desktop-table-container bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden w-full">
-            <table class="w-full text-sm">
+            <table class="w-full text-xs lg:text-sm">
                 <thead
-                    class="table-header-glass-green text-[#0E2339] uppercase text-xs sm:text-sm font-extrabold tracking-wide relative z-10 shadow-[0_12px_24px_-4px_rgba(0,0,0,0.7)]">
+                    class="table-header-glass-green text-[#0E2339] uppercase text-[11px] lg:text-sm font-extrabold tracking-wide relative z-10 shadow-[0_12px_24px_-4px_rgba(0,0,0,0.7)]">
                     <tr>
-                        <th class="py-3 px-2 text-center border-r border-[#77C043]/40 w-16 leading-tight">
+                        <th class="py-3 px-2 text-center border-r border-[#77C043]/40 w-12 lg:w-16 leading-tight">
                             SERIAL<br>NO
                         </th>
-                        <th class="py-3 px-3 text-center border-r border-[#77C043]/40 w-32">Trip Date & Time</th>
-                        <th class="py-3 px-4 text-center border-r border-[#77C043]/40 leading-tight">
+                        <th class="py-3 px-2 lg:px-3 text-center border-r border-[#77C043]/40 w-28 lg:w-32">Trip Date & Time</th>
+                        <th class="py-3 px-3 lg:px-4 text-center border-r border-[#77C043]/40 leading-tight">
                             ROUTE<br>DETAILS
                         </th>
-                        <th class="py-3 px-3 text-center border-r border-[#77C043]/40 w-48">Contact Information</th>
-                        <th class="py-3 px-3 text-center border-r border-[#77C043]/40 w-36">Seat Information</th>
-                        <th class="py-3 px-3 text-center border-r border-[#77C043]/40 w-28">Ticket Fare</th>
-                        <th class="py-3 px-3 text-center w-52">Details<br>Information</th>
+                        <th class="py-3 px-2 lg:px-3 text-center border-r border-[#77C043]/40 w-40 lg:w-48">Contact Information</th>
+                        <th class="py-3 px-2 lg:px-3 text-center border-r border-[#77C043]/40 w-32 lg:w-36">Seat Information</th>
+                        <th class="py-3 px-2 lg:px-3 text-center border-r border-[#77C043]/40 w-24 lg:w-28">Ticket Fare</th>
+                        <th class="py-3 px-2 lg:px-3 text-center w-44 lg:w-52">Details<br>Information</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 text-[#0E2339] font-medium">
@@ -240,40 +240,39 @@
                     <!-- Trip 1 -->
                     <tr class="bg-[#77C043]/10">
                         <td class="py-4 px-2 text-center font-bold border-r border-gray-200">1</td>
-                        <td class="py-4 px-3 text-center border-r border-gray-200">
-                            <div class="font-bold text-[#0E2339] text-base">7:00 PM</div>
-                            <div class="text-gray-700 text-xs font-semibold row-date-text">03 Oct, 2026</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-200">
+                            <div class="font-bold text-[#0E2339] text-sm lg:text-base">7:00 PM</div>
+                            <div class="text-gray-700 text-[11px] lg:text-xs font-semibold row-date-text">03 Oct, 2026</div>
                         </td>
-                        <!-- Font Size set to 15px (text-[15px]) -->
-                        <td class="py-4 px-4 text-left text-[15px] leading-relaxed border-r border-gray-200">
+                        <td class="py-4 px-3 lg:px-4 text-left text-xs lg:text-[15px] leading-relaxed border-r border-gray-200">
                             ভোলাহাট - মসুরীরভূজা - রহনপুর - গোমস্তাপুর - চৌডালা - কানসাট - শিবগঞ্জ - চাঁপাইনবাবগঞ্জ -
                             রাজশাহী - চন্দ্রা - গাজীপুর - টঙ্গী - আব্দুল্লাহপুর - উত্তরা - এয়ারপোর্ট - কালসী - গাবতলী -
                             মোহাম্মদপুর - বসিলা - কদমতলী - নয়াবাজার।
                         </td>
-                        <td class="py-4 px-3 text-center border-r border-gray-200">
-                            <div class="font-bold text-xs">Dhaka Metro-B 12-2538</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-200">
+                            <div class="font-bold text-[11px] lg:text-xs">Dhaka Metro-B 12-2538</div>
                             <div
-                                class="text-xs text-[#0E2339] font-bold mt-1 flex items-center justify-center space-x-1">
+                                class="text-[11px] lg:text-xs text-[#0E2339] font-bold mt-1 flex items-center justify-center space-x-1">
                                 <i class="fa-solid fa-phone-volume text-[#77C043]"></i>
                                 <span>01798009383</span>
                             </div>
                         </td>
-                        <td class="py-4 px-3 text-center border-r border-gray-200 text-xs">
-                            <div class="font-extrabold text-[#441113] text-base">Sold - 41</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-200 text-[11px] lg:text-xs">
+                            <div class="font-extrabold text-[#441113] text-sm lg:text-base">Sold - 41</div>
                             <div>Available - <span class="font-bold text-emerald-800">3</span></div>
                             <div class="text-[#0E2339] font-bold">Reserved - 0</div>
                         </td>
-                        <td class="py-4 px-3 text-center font-black text-[#0E2339] border-r border-gray-200 text-lg">৳
+                        <td class="py-4 px-2 lg:px-3 text-center font-black text-[#0E2339] border-r border-gray-200 text-base lg:text-lg">৳
                             800</td>
-                        <td class="py-4 px-3 text-center">
-                            <div class="flex items-center justify-center space-x-1.5">
+                        <td class="py-4 px-2 lg:px-3 text-center">
+                            <div class="flex items-center justify-center space-x-1 lg:space-x-1.5 flex-wrap gap-y-1">
                                 <button onclick="openChallanModal(101)"
-                                    class="action-btn-green-40 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
+                                    class="action-btn-green-40 px-2 lg:px-2.5 py-1.5 rounded-lg text-[11px] lg:text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
                                     <i class="fa-solid fa-file-invoice"></i>
                                     <span>Challan</span>
                                 </button>
                                 <button onclick="openSeatSelection(101)"
-                                    class="action-btn-green-40 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
+                                    class="action-btn-green-40 px-2 lg:px-2.5 py-1.5 rounded-lg text-[11px] lg:text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
                                     <span>Panel View</span>
                                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
                                 </button>
@@ -284,39 +283,38 @@
                     <!-- Trip 2 -->
                     <tr class="bg-[#77C043]/25">
                         <td class="py-4 px-2 text-center font-bold border-r border-gray-100">2</td>
-                        <td class="py-4 px-3 text-center border-r border-gray-100">
-                            <div class="font-bold text-[#0E2339] text-base">7:35 PM</div>
-                            <div class="text-gray-500 text-xs row-date-text">03 Oct, 2026</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-100">
+                            <div class="font-bold text-[#0E2339] text-sm lg:text-base">7:35 PM</div>
+                            <div class="text-gray-500 text-[11px] lg:text-xs row-date-text">03 Oct, 2026</div>
                         </td>
-                        <!-- Font Size set to 15px (text-[15px]) -->
-                        <td class="py-4 px-4 text-left text-[15px] leading-relaxed border-r border-gray-100">
+                        <td class="py-4 px-3 lg:px-4 text-left text-xs lg:text-[15px] leading-relaxed border-r border-gray-100">
                             (ঢাকা) নয়াবাজার - কদমতলী - কোনাখোলা - খোলামোড়া - আটিবাজার - মোহাম্মদপুর - গাবতলী -
                             হেমায়েতপুর - সাভার - নবীনগর - বাইপাইল - নাটোর - রাজশাহী - চাঁপাইনবাবগঞ্জ - কানসাট -
                             ভোলাহাট।
                         </td>
-                        <td class="py-4 px-3 text-center border-r border-gray-100">
-                            <div class="font-bold text-xs">Dhaka Metro-B 12-1663</div>
-                            <div class="text-xs text-gray-700 mt-1 flex items-center justify-center space-x-1">
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-100">
+                            <div class="font-bold text-[11px] lg:text-xs">Dhaka Metro-B 12-1663</div>
+                            <div class="text-[11px] lg:text-xs text-gray-700 mt-1 flex items-center justify-center space-x-1">
                                 <i class="fa-solid fa-phone-volume text-[#77C043]"></i>
                                 <span>01797828222</span>
                             </div>
                         </td>
-                        <td class="py-4 px-3 text-center border-r border-gray-100 text-xs">
-                            <div class="font-extrabold text-[#441113] text-base">Sold - 31</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-100 text-[11px] lg:text-xs">
+                            <div class="font-extrabold text-[#441113] text-sm lg:text-base">Sold - 31</div>
                             <div>Available - <span class="font-bold text-emerald-700">13</span></div>
                             <div class="text-[#0E2339] font-bold">Reserved - 0</div>
                         </td>
-                        <td class="py-4 px-3 text-center font-bold text-[#0E2339] border-r border-gray-100 text-lg">৳
+                        <td class="py-4 px-2 lg:px-3 text-center font-bold text-[#0E2339] border-r border-gray-100 text-base lg:text-lg">৳
                             800</td>
-                        <td class="py-4 px-3 text-center">
-                            <div class="flex items-center justify-center space-x-1.5">
+                        <td class="py-4 px-2 lg:px-3 text-center">
+                            <div class="flex items-center justify-center space-x-1 lg:space-x-1.5 flex-wrap gap-y-1">
                                 <button onclick="openChallanModal(102)"
-                                    class="action-btn-green-40 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
+                                    class="action-btn-green-40 px-2 lg:px-2.5 py-1.5 rounded-lg text-[11px] lg:text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
                                     <i class="fa-solid fa-file-invoice"></i>
                                     <span>Challan</span>
                                 </button>
                                 <button onclick="openSeatSelection(102)"
-                                    class="action-btn-green-40 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
+                                    class="action-btn-green-40 px-2 lg:px-2.5 py-1.5 rounded-lg text-[11px] lg:text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
                                     <span>Panel View</span>
                                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
                                 </button>
@@ -324,41 +322,41 @@
                         </td>
                     </tr>
 
-                    <!-- Trip 3 (Added) -->
+                    <!-- Trip 3 -->
                     <tr class="bg-[#77C043]/10">
                         <td class="py-4 px-2 text-center font-bold border-r border-gray-200">3</td>
-                        <td class="py-4 px-3 text-center border-r border-gray-200">
-                            <div class="font-bold text-[#0E2339] text-base">8:15 PM</div>
-                            <div class="text-gray-700 text-xs font-semibold row-date-text">03 Oct, 2026</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-200">
+                            <div class="font-bold text-[#0E2339] text-sm lg:text-base">8:15 PM</div>
+                            <div class="text-gray-700 text-[11px] lg:text-xs font-semibold row-date-text">03 Oct, 2026</div>
                         </td>
-                        <td class="py-4 px-4 text-left text-[15px] leading-relaxed border-r border-gray-200">
+                        <td class="py-4 px-3 lg:px-4 text-left text-xs lg:text-[15px] leading-relaxed border-r border-gray-200">
                             ভোলাহাট - মসুরীরভূজা - রহনপুর - গোমস্তাপুর - চৌডালা - কানসাট - চাঁপাইনবাবগঞ্জ - রাজশাহী -
                             বাইপাইল - সাভার - গাবতলী - আব্দুল্লাহপুর।
                         </td>
-                        <td class="py-4 px-3 text-center border-r border-gray-200">
-                            <div class="font-bold text-xs">Dhaka Metro-B 15-4089</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-200">
+                            <div class="font-bold text-[11px] lg:text-xs">Dhaka Metro-B 15-4089</div>
                             <div
-                                class="text-xs text-[#0E2339] font-bold mt-1 flex items-center justify-center space-x-1">
+                                class="text-[11px] lg:text-xs text-[#0E2339] font-bold mt-1 flex items-center justify-center space-x-1">
                                 <i class="fa-solid fa-phone-volume text-[#77C043]"></i>
                                 <span>01820495831</span>
                             </div>
                         </td>
-                        <td class="py-4 px-3 text-center border-r border-gray-200 text-xs">
-                            <div class="font-extrabold text-[#441113] text-base">Sold - 36</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-200 text-[11px] lg:text-xs">
+                            <div class="font-extrabold text-[#441113] text-sm lg:text-base">Sold - 36</div>
                             <div>Available - <span class="font-bold text-emerald-800">8</span></div>
                             <div class="text-[#0E2339] font-bold">Reserved - 0</div>
                         </td>
-                        <td class="py-4 px-3 text-center font-black text-[#0E2339] border-r border-gray-200 text-lg">৳
+                        <td class="py-4 px-2 lg:px-3 text-center font-black text-[#0E2339] border-r border-gray-200 text-base lg:text-lg">৳
                             850</td>
-                        <td class="py-4 px-3 text-center">
-                            <div class="flex items-center justify-center space-x-1.5">
+                        <td class="py-4 px-2 lg:px-3 text-center">
+                            <div class="flex items-center justify-center space-x-1 lg:space-x-1.5 flex-wrap gap-y-1">
                                 <button onclick="openChallanModal(103)"
-                                    class="action-btn-green-40 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
+                                    class="action-btn-green-40 px-2 lg:px-2.5 py-1.5 rounded-lg text-[11px] lg:text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
                                     <i class="fa-solid fa-file-invoice"></i>
                                     <span>Challan</span>
                                 </button>
                                 <button onclick="openSeatSelection(103)"
-                                    class="action-btn-green-40 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
+                                    class="action-btn-green-40 px-2 lg:px-2.5 py-1.5 rounded-lg text-[11px] lg:text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
                                     <span>Panel View</span>
                                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
                                 </button>
@@ -366,40 +364,40 @@
                         </td>
                     </tr>
 
-                    <!-- Trip 4 (Added) -->
+                    <!-- Trip 4 -->
                     <tr class="bg-[#77C043]/25">
                         <td class="py-4 px-2 text-center font-bold border-r border-gray-100">4</td>
-                        <td class="py-4 px-3 text-center border-r border-gray-100">
-                            <div class="font-bold text-[#0E2339] text-base">9:00 PM</div>
-                            <div class="text-gray-500 text-xs row-date-text">03 Oct, 2026</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-100">
+                            <div class="font-bold text-[#0E2339] text-sm lg:text-base">9:00 PM</div>
+                            <div class="text-gray-500 text-[11px] lg:text-xs row-date-text">03 Oct, 2026</div>
                         </td>
-                        <td class="py-4 px-4 text-left text-[15px] leading-relaxed border-r border-gray-100">
+                        <td class="py-4 px-3 lg:px-4 text-left text-xs lg:text-[15px] leading-relaxed border-r border-gray-100">
                             রহনপুর - গোমস্তাপুর - কানসাট - চাঁপাইনবাবগঞ্জ - রাজশাহী - চন্দ্রা - গাজীপুর - উত্তরা -
                             এয়ারপোর্ট - গাবতলী - নয়াবাজার।
                         </td>
-                        <td class="py-4 px-3 text-center border-r border-gray-100">
-                            <div class="font-bold text-xs">Dhaka Metro-B 14-8890</div>
-                            <div class="text-xs text-gray-700 mt-1 flex items-center justify-center space-x-1">
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-100">
+                            <div class="font-bold text-[11px] lg:text-xs">Dhaka Metro-B 14-8890</div>
+                            <div class="text-[11px] lg:text-xs text-gray-700 mt-1 flex items-center justify-center space-x-1">
                                 <i class="fa-solid fa-phone-volume text-[#77C043]"></i>
                                 <span>01912345678</span>
                             </div>
                         </td>
-                        <td class="py-4 px-3 text-center border-r border-gray-100 text-xs">
-                            <div class="font-extrabold text-[#441113] text-base">Sold - 39</div>
+                        <td class="py-4 px-2 lg:px-3 text-center border-r border-gray-100 text-[11px] lg:text-xs">
+                            <div class="font-extrabold text-[#441113] text-sm lg:text-base">Sold - 39</div>
                             <div>Available - <span class="font-bold text-emerald-700">5</span></div>
                             <div class="text-[#0E2339] font-bold">Reserved - 0</div>
                         </td>
-                        <td class="py-4 px-3 text-center font-bold text-[#0E2339] border-r border-gray-100 text-lg">৳
+                        <td class="py-4 px-2 lg:px-3 text-center font-bold text-[#0E2339] border-r border-gray-100 text-base lg:text-lg">৳
                             800</td>
-                        <td class="py-4 px-3 text-center">
-                            <div class="flex items-center justify-center space-x-1.5">
+                        <td class="py-4 px-2 lg:px-3 text-center">
+                            <div class="flex items-center justify-center space-x-1 lg:space-x-1.5 flex-wrap gap-y-1">
                                 <button onclick="openChallanModal(104)"
-                                    class="action-btn-green-40 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
+                                    class="action-btn-green-40 px-2 lg:px-2.5 py-1.5 rounded-lg text-[11px] lg:text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
                                     <i class="fa-solid fa-file-invoice"></i>
                                     <span>Challan</span>
                                 </button>
                                 <button onclick="openSeatSelection(104)"
-                                    class="action-btn-green-40 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
+                                    class="action-btn-green-40 px-2 lg:px-2.5 py-1.5 rounded-lg text-[11px] lg:text-xs font-bold flex items-center space-x-1 shadow-sm whitespace-nowrap">
                                     <span>Panel View</span>
                                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
                                 </button>
@@ -411,12 +409,11 @@
             </table>
         </div>
 
-        <!-- MOBILE RESPONSIVE CARDS VIEW (4 Trips) -->
+        <!-- MOBILE RESPONSIVE CARDS VIEW -->
         <div class="mobile-cards-container space-y-4 w-full">
-
             <!-- Card 1 -->
             <div
-                class="bg-white border-2 border-[#77C043]/40 rounded-2xl p-4 shadow-[0_10px_25px_rgba(119,192,67,0.45)] space-y-3 w-full">
+                class="bg-white border-2 border-[#77C043]/40 rounded-2xl p-3 sm:p-4 shadow-[0_10px_25px_rgba(119,192,67,0.45)] space-y-3 w-full">
                 <div class="flex items-center justify-between pb-2 border-b border-gray-100">
                     <span class="font-black text-xs text-[#0E2339] bg-gray-100 px-2.5 py-1 rounded-md">SL: 01</span>
                     <span class="font-black text-sm text-[#0E2339]">7:00 PM</span>
@@ -471,7 +468,7 @@
 
             <!-- Card 2 -->
             <div
-                class="bg-white border-2 border-[#77C043]/40 rounded-2xl p-4 shadow-[0_10px_25px_rgba(119,192,67,0.45)] space-y-3 w-full">
+                class="bg-white border-2 border-[#77C043]/40 rounded-2xl p-3 sm:p-4 shadow-[0_10px_25px_rgba(119,192,67,0.45)] space-y-3 w-full">
                 <div class="flex items-center justify-between pb-2 border-b border-gray-100">
                     <span class="font-black text-xs text-[#0E2339] bg-gray-100 px-2.5 py-1 rounded-md">SL: 02</span>
                     <span class="font-black text-sm text-[#0E2339]">7:35 PM</span>
@@ -525,7 +522,7 @@
 
             <!-- Card 3 -->
             <div
-                class="bg-white border-2 border-[#77C043]/40 rounded-2xl p-4 shadow-[0_10px_25px_rgba(119,192,67,0.45)] space-y-3 w-full">
+                class="bg-white border-2 border-[#77C043]/40 rounded-2xl p-3 sm:p-4 shadow-[0_10px_25px_rgba(119,192,67,0.45)] space-y-3 w-full">
                 <div class="flex items-center justify-between pb-2 border-b border-gray-100">
                     <span class="font-black text-xs text-[#0E2339] bg-gray-100 px-2.5 py-1 rounded-md">SL: 03</span>
                     <span class="font-black text-sm text-[#0E2339]">8:15 PM</span>
@@ -579,7 +576,7 @@
 
             <!-- Card 4 -->
             <div
-                class="bg-white border-2 border-[#77C043]/40 rounded-2xl p-4 shadow-[0_10px_25px_rgba(119,192,67,0.45)] space-y-3 w-full">
+                class="bg-white border-2 border-[#77C043]/40 rounded-2xl p-3 sm:p-4 shadow-[0_10px_25px_rgba(119,192,67,0.45)] space-y-3 w-full">
                 <div class="flex items-center justify-between pb-2 border-b border-gray-100">
                     <span class="font-black text-xs text-[#0E2339] bg-gray-100 px-2.5 py-1 rounded-md">SL: 04</span>
                     <span class="font-black text-sm text-[#0E2339]">9:00 PM</span>
@@ -630,20 +627,15 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
     </main>
 
-    <!-- ==========================================
-     TABLE-ALIGNED PREMIUM FOOTER SECTION
-     ========================================== -->
+    <!-- Footer -->
     <footer
-        class="bg-[#77C043]/10 text-[#0E2339] border-t border-[#77C043]/30 py-3.5 sm:py-4 px-3 sm:px-6 lg:px-8 mt-8 w-full relative z-10 shadow-[0_-6px_20px_rgba(119,192,67,0.12)]">
+        class="bg-[#77C043]/10 text-[#0E2339] border-t border-[#77C043]/30 py-3.5 sm:py-4 px-3 sm:px-6 md:px-8 lg:px-10 mt-8 w-full relative z-10 shadow-[0_-6px_20px_rgba(119,192,67,0.12)]">
         <div
             class="w-full flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center justify-between gap-3 lg:gap-4 text-xs">
-
-            <!-- 1. Logo & Brand Name -->
             <div class="flex items-center space-x-2 shrink-0 justify-center md:justify-start">
                 <img src="../../assets/images/MaxLogoIcon.png" alt="Max Travels Logo"
                     class="h-6 sm:h-7 w-auto object-contain opacity-90">
@@ -651,8 +643,6 @@
                     MAX TRAVELS
                 </span>
             </div>
-
-            <!-- 2. Social Media Icons -->
             <div class="flex items-center space-x-2 shrink-0 justify-center md:justify-end lg:justify-start">
                 <a href="#"
                     class="w-7 h-7 rounded-full bg-white/60 border border-[#77C043]/25 hover:bg-[#0E2339] text-[#0E2339]/70 hover:text-white flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105">
@@ -667,8 +657,6 @@
                     <i class="fa-brands fa-youtube text-[11px]"></i>
                 </a>
             </div>
-
-            <!-- 3. Contact Information (Address, Phone & Email in-line) -->
             <div
                 class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-[11px] sm:text-xs text-[#0E2339]/75 font-medium text-center md:col-span-2 lg:col-span-1">
                 <div class="flex items-center space-x-1">
@@ -687,15 +675,12 @@
                     <span class="text-[#0E2339]/80">maxtravels2022@gmail.com</span>
                 </div>
             </div>
-
-            <!-- 4. Copyright & Developer Info -->
             <div class="text-[11px] text-[#0E2339]/60 shrink-0 text-center xl:text-right font-medium">
                 © 2026 <strong class="text-[#77C043]/90 font-bold">Max Travels</strong>. All rights reserved.
                 <span class="hidden sm:inline text-[#0E2339]/30">|</span>
                 <span class="block sm:inline mt-0.5 sm:mt-0 font-semibold text-[#0E2339]/75">Developed by Coder
                     Nasim</span>
             </div>
-
         </div>
     </footer>
 
@@ -704,29 +689,22 @@
         class="fixed inset-0 z-50 hidden opacity-0 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-all duration-300">
         <div class="glass-modal-card w-full max-w-sm rounded-3xl p-6 text-center space-y-5 transform scale-95 transition-all duration-300"
             style="background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1.5px solid rgba(119, 192, 67, 0.5); box-shadow: 0 20px 40px rgba(14, 35, 57, 0.25);">
-
-            <!-- Icon (Replaced with Max Travels Logo) -->
             <div
                 class="w-16 h-16 mx-auto rounded-full bg-white/60 border border-[#70C844]/40 flex items-center justify-center p-2.5 shadow-sm">
                 <img src="../../assets/images/MaxLogoIcon.png" alt="Max Travels Logo"
                     class="w-full h-full object-contain">
             </div>
-
-            <!-- Text -->
             <div class="space-y-1">
                 <h3 class="text-xl font-black text-[#0E2339]">Log Out</h3>
                 <p class="text-sm font-semibold text-[#0E2339]/80">Are you sure you want to log out from Max Travels?
                 </p>
             </div>
-
-            <!-- Action Buttons matching Nav Glass Theme -->
             <div class="flex items-center space-x-3 pt-2">
                 <button onclick="closeLogoutModal()"
                     class="flex-1 py-2.5 px-4 rounded-xl text-sm font-bold transition-all cursor-pointer"
                     style="background: rgba(14, 35, 57, 0.08); border: 1px solid rgba(14, 35, 57, 0.2); color: #0E2339;">
                     Cancel
                 </button>
-
                 <button onclick="confirmLogout()"
                     class="glass-nav-btn flex-1 py-2.5 px-4 rounded-xl text-sm font-black transition-all cursor-pointer">
                     Log Out
